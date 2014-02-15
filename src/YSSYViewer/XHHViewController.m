@@ -19,6 +19,8 @@
 @property int currentImage;
 @property BOOL isLoading;
 @property BOOL inAnimation;
+@property BOOL inSlideShow;
+@property NSTimeInterval timeInterval;
 //@property NSMutableArray *imageLoaded;
 
 @end
@@ -46,7 +48,7 @@
 - (void) setImage : (UIImage*) image {
     self.inAnimation = TRUE;
     [UIView transitionWithView:self.imgView
-                      duration:0.30f
+                      duration:self.inSlideShow ? 1.0f : 0.30f
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         self.imgView.image = image;
@@ -190,16 +192,51 @@
     [self loadImage:self.currentImage-1];
 }
 
+- (void) handleTimer: (NSTimer *) timer {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
+                                                  target: self
+                                                selector: @selector(handleTimer:)
+                                                userInfo: nil
+                                                 repeats: FALSE];
+    if(self.photos.count == 0) return;
+    XHHImageInfo* ii = [self.photos objectAtIndex:self.currentImage];
+    if(!ii.loaded) return;
+    [self nextImage];
+}
+
+- (void) startSlideShow {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
+                                                  target: self
+                                                selector: @selector(handleTimer:)
+                                                userInfo: nil
+                                                 repeats: FALSE];
+    self.inSlideShow = TRUE;
+    self.view.backgroundColor = [UIColor blackColor];
+    NSLog(@"slideshow started!");
+}
+
+-(void) stopSlideShow {
+    if(self.timer == nil) return;
+    self.view.backgroundColor = [UIColor darkGrayColor];
+    [self.timer invalidate];
+    self.inSlideShow = FALSE;
+    NSLog(@"slideshow stopped!");
+}
+
 - (void)handleSwipe:(UISwipeGestureRecognizer *)swipe {
 
     if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
         [self nextImage];
+        [self stopSlideShow];
     }
 
     if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
-        //        NSLog(@"Right Swipe");
-        //        [self performSegueWithIdentifier:@"toBoardViewSegue" sender:self];
         [self prevImage];
+        [self stopSlideShow];
+    }
+
+    if(swipe.direction == UISwipeGestureRecognizerDirectionDown) {
+        [self startSlideShow];
     }
 
     if(swipe.direction == UISwipeGestureRecognizerDirectionUp) {
@@ -231,16 +268,19 @@
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
     UISwipeGestureRecognizer *swipeUP = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
 
     // Setting the swipe direction.
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
     [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
     [swipeUP setDirection:UISwipeGestureRecognizerDirectionUp];
+    [swipeDown setDirection:UISwipeGestureRecognizerDirectionDown];
 
     // Adding the swipe gesture on image view
     [self.imgView addGestureRecognizer:swipeLeft];
     [self.imgView addGestureRecognizer:swipeRight];
     [self.imgView addGestureRecognizer:swipeUP];
+    [self.imgView addGestureRecognizer:swipeDown];
 }
 
 
@@ -274,12 +314,19 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+    [[SDImageCache sharedImageCache] clearMemory];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self stopSlideShow];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:

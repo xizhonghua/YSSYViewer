@@ -29,7 +29,27 @@
     self.boards = [[NSMutableArray alloc] init];
     [self.boards addObject:@"PPPerson"];
     [self.boards addObject:@"PIC"];
+    [self.boards addObject:@"LoveBridge"];
+    [self.boards addObject:@"LA"];
+    [self.boards addObject:@"Bowling"];
+    [self.boards addObject:@"nature"];
     [self.boards addObject:@"Photo"];
+    [self.boards addObject:@"bicycle"];
+    [self.boards addObject:@"joke"];
+    [self.boards addObject:@"travel"];
+    [self.boards addObject:@"Running"];
+    [self.boards addObject:@"JPOZ"];
+    [self.boards addObject:@"yanzi"];
+    [self.boards addObject:@"ChrisLee"];
+    [self.boards addObject:@"power"];
+    [self.boards addObject:@"FairyTale"];
+    [self.boards addObject:@"KOEI"];
+    [self.boards addObject:@"Garden"];
+    [self.boards addObject:@"SJTUNews"];
+    [self.boards addObject:@"Material"];
+    [self.boards addObject:@"Pet"];
+    [self.boards addObject:@"outdoor"];
+    [self.boards addObject:@"WorkLife"];
 }
 
 - (void)viewDidLoad

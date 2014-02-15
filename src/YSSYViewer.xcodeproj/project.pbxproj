@@ -7,25 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1A28CA18AFBA8E00888139 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1A28C918AFBA8E00888139 /* MapKit.framework */; };
+		2C1A28CD18AFBBF600888139 /* XHHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45ADE018ADCB98002A5130 /* XHHViewController.m */; };
+		2C1A28CE18AFBBFF00888139 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45ADD618ADCB98002A5130 /* main.m */; };
+		2C1A28CF18AFBC0300888139 /* XHHPhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45AE0418AE8F8B002A5130 /* XHHPhotoListViewController.m */; };
+		2C1A28D018AFBC0700888139 /* XHHImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7CD5A18AFB07300E092F5 /* XHHImageInfo.m */; };
+		2C1A28D218AFBC2300888139 /* XHHBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45AE0A18AECD0D002A5130 /* XHHBoardViewController.m */; };
+		2C1A28D318AFBC3200888139 /* XHHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45ADDA18ADCB98002A5130 /* XHHAppDelegate.m */; };
 		2C45ADCB18ADCB98002A5130 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C45ADCA18ADCB98002A5130 /* Foundation.framework */; };
 		2C45ADCD18ADCB98002A5130 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C45ADCC18ADCB98002A5130 /* CoreGraphics.framework */; };
 		2C45ADCF18ADCB98002A5130 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C45ADCE18ADCB98002A5130 /* UIKit.framework */; };
 		2C45ADD518ADCB98002A5130 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C45ADD318ADCB98002A5130 /* InfoPlist.strings */; };
-		2C45ADD718ADCB98002A5130 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45ADD618ADCB98002A5130 /* main.m */; };
-		2C45ADDB18ADCB98002A5130 /* XHHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45ADDA18ADCB98002A5130 /* XHHAppDelegate.m */; };
 		2C45ADDE18ADCB98002A5130 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C45ADDC18ADCB98002A5130 /* Main.storyboard */; };
-		2C45ADE118ADCB98002A5130 /* XHHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45ADE018ADCB98002A5130 /* XHHViewController.m */; };
 		2C45ADE318ADCB98002A5130 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C45ADE218ADCB98002A5130 /* Images.xcassets */; };
 		2C45ADEA18ADCB98002A5130 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C45ADE918ADCB98002A5130 /* XCTest.framework */; };
 		2C45ADEB18ADCB98002A5130 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C45ADCA18ADCB98002A5130 /* Foundation.framework */; };
 		2C45ADEC18ADCB98002A5130 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C45ADCE18ADCB98002A5130 /* UIKit.framework */; };
 		2C45ADF418ADCB98002A5130 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C45ADF218ADCB98002A5130 /* InfoPlist.strings */; };
 		2C45ADF618ADCB98002A5130 /* YSSYPhotoViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45ADF518ADCB98002A5130 /* YSSYPhotoViewerTests.m */; };
-		2C45AE0018AE617F002A5130 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C45ADFF18AE617F002A5130 /* SDWebImage.framework */; };
 		2C45AE0218AE6231002A5130 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C45AE0118AE6231002A5130 /* ImageIO.framework */; };
-		2C45AE0518AE8F8B002A5130 /* XHHPhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45AE0418AE8F8B002A5130 /* XHHPhotoListViewController.m */; };
-		2C45AE0B18AECD0D002A5130 /* XHHBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45AE0A18AECD0D002A5130 /* XHHBoardViewController.m */; };
-		2CF7CD5B18AFB07300E092F5 /* XHHImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7CD5A18AFB07300E092F5 /* XHHImageInfo.m */; };
+		2C84F87618AFC067003DF846 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C84F87518AFC067003DF846 /* SDWebImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,11 +35,13 @@
 			containerPortal = 2C45ADBF18ADCB98002A5130 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2C45ADC618ADCB98002A5130;
-			remoteInfo = YSSYPhotoViewer;
+			remoteInfo = YSSYViewer;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C1A28C718AFBA2700888139 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = lib/SDWebImage.framework; sourceTree = "<group>"; };
+		2C1A28C918AFBA8E00888139 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2C45ADC718ADCB98002A5130 /* YSSYViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YSSYViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C45ADCA18ADCB98002A5130 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C45ADCC18ADCB98002A5130 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,12 +61,12 @@
 		2C45ADF118ADCB98002A5130 /* YSSYViewerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YSSYViewerTests-Info.plist"; sourceTree = "<group>"; };
 		2C45ADF318ADCB98002A5130 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C45ADF518ADCB98002A5130 /* YSSYPhotoViewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSSYPhotoViewerTests.m; sourceTree = "<group>"; };
-		2C45ADFF18AE617F002A5130 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		2C45AE0118AE6231002A5130 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		2C45AE0318AE8F8B002A5130 /* XHHPhotoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHHPhotoListViewController.h; sourceTree = "<group>"; };
 		2C45AE0418AE8F8B002A5130 /* XHHPhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHHPhotoListViewController.m; sourceTree = "<group>"; };
 		2C45AE0918AECD0D002A5130 /* XHHBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHHBoardViewController.h; sourceTree = "<group>"; };
 		2C45AE0A18AECD0D002A5130 /* XHHBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHHBoardViewController.m; sourceTree = "<group>"; };
+		2C84F87518AFC067003DF846 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = lib/SDWebImage.framework; sourceTree = "<group>"; };
 		2CF7CD5918AFB07300E092F5 /* XHHImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHHImageInfo.h; sourceTree = "<group>"; };
 		2CF7CD5A18AFB07300E092F5 /* XHHImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHHImageInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,9 +77,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C45AE0218AE6231002A5130 /* ImageIO.framework in Frameworks */,
-				2C45AE0018AE617F002A5130 /* SDWebImage.framework in Frameworks */,
+				2C1A28CA18AFBA8E00888139 /* MapKit.framework in Frameworks */,
 				2C45ADCD18ADCB98002A5130 /* CoreGraphics.framework in Frameworks */,
 				2C45ADCF18ADCB98002A5130 /* UIKit.framework in Frameworks */,
+				2C84F87618AFC067003DF846 /* SDWebImage.framework in Frameworks */,
 				2C45ADCB18ADCB98002A5130 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,7 +101,7 @@
 		2C45ADBE18ADCB98002A5130 = {
 			isa = PBXGroup;
 			children = (
-				2C45ADFF18AE617F002A5130 /* SDWebImage.framework */,
+				2C84F87518AFC067003DF846 /* SDWebImage.framework */,
 				2C45ADD018ADCB98002A5130 /* YSSYViewer */,
 				2C45ADEF18ADCB98002A5130 /* YSSYViewerTests */,
 				2C45ADC918ADCB98002A5130 /* Frameworks */,
@@ -117,6 +121,8 @@
 		2C45ADC918ADCB98002A5130 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C1A28C918AFBA8E00888139 /* MapKit.framework */,
+				2C1A28C718AFBA2700888139 /* SDWebImage.framework */,
 				2C45AE0118AE6231002A5130 /* ImageIO.framework */,
 				2C45ADCA18ADCB98002A5130 /* Foundation.framework */,
 				2C45ADCC18ADCB98002A5130 /* CoreGraphics.framework */,
@@ -143,8 +149,7 @@
 				2CF7CD5918AFB07300E092F5 /* XHHImageInfo.h */,
 				2CF7CD5A18AFB07300E092F5 /* XHHImageInfo.m */,
 			);
-			name = YSSYViewer;
-			path = YSSYPhotoViewer;
+			path = YSSYViewer;
 			sourceTree = "<group>";
 		};
 		2C45ADD118ADCB98002A5130 /* Supporting Files */ = {
@@ -164,8 +169,7 @@
 				2C45ADF518ADCB98002A5130 /* YSSYPhotoViewerTests.m */,
 				2C45ADF018ADCB98002A5130 /* Supporting Files */,
 			);
-			name = YSSYViewerTests;
-			path = YSSYPhotoViewerTests;
+			path = YSSYViewerTests;
 			sourceTree = "<group>";
 		};
 		2C45ADF018ADCB98002A5130 /* Supporting Files */ = {
@@ -193,7 +197,7 @@
 			dependencies = (
 			);
 			name = YSSYViewer;
-			productName = YSSYPhotoViewer;
+			productName = YSSYViewer;
 			productReference = 2C45ADC718ADCB98002A5130 /* YSSYViewer.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -211,7 +215,7 @@
 				2C45ADEE18ADCB98002A5130 /* PBXTargetDependency */,
 			);
 			name = YSSYViewerTests;
-			productName = YSSYPhotoViewerTests;
+			productName = YSSYViewerTests;
 			productReference = 2C45ADE818ADCB98002A5130 /* YSSYViewerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -278,12 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CF7CD5B18AFB07300E092F5 /* XHHImageInfo.m in Sources */,
-				2C45AE0B18AECD0D002A5130 /* XHHBoardViewController.m in Sources */,
-				2C45AE0518AE8F8B002A5130 /* XHHPhotoListViewController.m in Sources */,
-				2C45ADD718ADCB98002A5130 /* main.m in Sources */,
-				2C45ADE118ADCB98002A5130 /* XHHViewController.m in Sources */,
-				2C45ADDB18ADCB98002A5130 /* XHHAppDelegate.m in Sources */,
+				2C1A28D318AFBC3200888139 /* XHHAppDelegate.m in Sources */,
+				2C1A28D218AFBC2300888139 /* XHHBoardViewController.m in Sources */,
+				2C1A28D018AFBC0700888139 /* XHHImageInfo.m in Sources */,
+				2C1A28CF18AFBC0300888139 /* XHHPhotoListViewController.m in Sources */,
+				2C1A28CE18AFBBFF00888139 /* main.m in Sources */,
+				2C1A28CD18AFBBF600888139 /* XHHViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,11 +419,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/zhonghua/projects/YSSYPhotoViewer,
+					/Users/zhonghua/projects/YSSYViewer,
+					/Users/zhonghua/projects/YSSYViewer/src/lib,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "YSSYPhotoViewer/YSSYViewer-Prefix.pch";
-				INFOPLIST_FILE = "YSSYPhotoViewer/YSSYViewer-Info.plist";
+				GCC_PREFIX_HEADER = "YSSYViewer/YSSYViewer-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/YSSYViewer/YSSYViewer-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = YSSYViewer;
 				WRAPPER_EXTENSION = app;
@@ -434,11 +439,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/zhonghua/projects/YSSYPhotoViewer,
+					/Users/zhonghua/projects/YSSYViewer,
+					/Users/zhonghua/projects/YSSYViewer/src/lib,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "YSSYPhotoViewer/YSSYViewer-Prefix.pch";
-				INFOPLIST_FILE = "YSSYPhotoViewer/YSSYViewer-Info.plist";
+				GCC_PREFIX_HEADER = "YSSYViewer/YSSYViewer-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/YSSYViewer/YSSYViewer-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = YSSYViewer;
 				WRAPPER_EXTENSION = app;
@@ -449,19 +455,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YSSYPhotoViewer.app/YSSYPhotoViewer";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YSSYViewer.app/YSSYViewer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "YSSYPhotoViewer/YSSYPhotoViewer-Prefix.pch";
+				GCC_PREFIX_HEADER = "YSSYViewer/YSSYViewer-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "YSSYPhotoViewerTests/YSSYViewerTests-Info.plist";
+				INFOPLIST_FILE = "YSSYViewerTests/YSSYViewerTests-Info.plist";
 				PRODUCT_NAME = YSSYViewerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -472,15 +478,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YSSYPhotoViewer.app/YSSYPhotoViewer";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YSSYViewer.app/YSSYViewer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "YSSYPhotoViewer/YSSYPhotoViewer-Prefix.pch";
-				INFOPLIST_FILE = "YSSYPhotoViewerTests/YSSYViewerTests-Info.plist";
+				GCC_PREFIX_HEADER = "YSSYViewer/YSSYPhotoViewer-Prefix.pch";
+				INFOPLIST_FILE = "YSSYViewerTests/YSSYViewerTests-Info.plist";
 				PRODUCT_NAME = YSSYViewerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
