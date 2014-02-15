@@ -1,0 +1,5 @@
+/Users/zhonghua/projects/YSSYViewer/tools/YSSYUploadCounter/YSSYUploadCounter/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/zhonghua/projects/YSSYViewer/tools/YSSYUploadCounter/YSSYUploadCounter/bin/Debug/YSSYUploadCounter.exe.mdb
+/Users/zhonghua/projects/YSSYViewer/tools/YSSYUploadCounter/YSSYUploadCounter/bin/Debug/YSSYUploadCounter.exe
+/Users/zhonghua/projects/YSSYViewer/tools/YSSYUploadCounter/YSSYUploadCounter/obj/x86/Debug/YSSYUploadCounter.exe
+/Users/zhonghua/projects/YSSYViewer/tools/YSSYUploadCounter/YSSYUploadCounter/obj/x86/Debug/YSSYUploadCounter.exe.mdb
