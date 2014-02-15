@@ -21,7 +21,7 @@
 @property BOOL inAnimation;
 @property BOOL inSlideShow;
 @property NSTimeInterval timeInterval;
-//@property NSMutableArray *imageLoaded;
+@property BOOL isReverseOrder;
 
 @end
 
@@ -30,8 +30,12 @@
 - (void) updateUISize {
     NSLog(@"XHHViewController bounds = %@", NSStringFromCGRect(self.view.bounds));
     [self.progressView setFrame:self.view.bounds];
+
+    //self.progressView.frame.size.width = self.view.bounds.size.width;
+
     NSLog(@"XHHViewController progressView.frame = %@", NSStringFromCGRect(self.progressView.frame));
-   // self.progressView.frame.size.width = self.view.bounds.size.width;
+
+    // self.progressView.frame.size.width = self.view.bounds.size.width;
     [self.imgView setFrame:self.view.bounds];
     [self.imgView setCenter:CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2)];
     NSLog(@"XHHViewController imgView.frame = %@", NSStringFromCGRect(self.imgView.frame));
@@ -175,6 +179,7 @@
     if(self.isLoading) {
         if(!ii.loaded) return;
     }
+    self.isReverseOrder = FALSE;
     self.currentImage = nextImageIndex;
     [self loadImage:self.currentImage];
     [self loadImage:self.currentImage+1];
@@ -187,6 +192,7 @@
     if(self.isLoading) {
         if(!ii.loaded) return;
     }
+    self.isReverseOrder = TRUE;
     self.currentImage = prevImageIndex;
     [self loadImage:self.currentImage];
     [self loadImage:self.currentImage-1];
@@ -201,10 +207,15 @@
     if(self.photos.count == 0) return;
     XHHImageInfo* ii = [self.photos objectAtIndex:self.currentImage];
     if(!ii.loaded) return;
-    [self nextImage];
+    if (self.isReverseOrder) {
+        [self prevImage];
+    }else {
+        [self nextImage];
+    }
 }
 
 - (void) startSlideShow {
+    if(self.inSlideShow) return;
     self.timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
                                                   target: self
                                                 selector: @selector(handleTimer:)
@@ -292,21 +303,16 @@
 
     self.currentImage = -1;
     [self nextImage];
-
-    //[self loadImages];
-
-
-
-    //    self.timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
-    //                                                  target: self
-    //                                                selector: @selector(handleTimer:)
-    //                                                userInfo: nil
-    //                                                 repeats: YES];
 }
 
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
+}
+
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
     [self updateUISize];
 }
 
@@ -314,7 +320,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-
+    
     [[SDImageCache sharedImageCache] clearMemory];
 }
 

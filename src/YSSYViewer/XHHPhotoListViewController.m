@@ -27,6 +27,7 @@
     NSLog(@"updating XHHPhotoListViewController UI size/pos, center = %@", NSStringFromCGPoint(center)
           );
     [self.labelInfo setCenter:center];
+    center.y -= 60;
     [self.activityView setCenter:center];
 }
 
@@ -49,6 +50,7 @@
 
     self.pageFatched = 0;
     self.startId = nil;
+     self.labelInfo.text = [@"Fetching image list of " stringByAppendingString:self.board];
 
     self.photos = [[NSMutableArray alloc] init];
 
@@ -58,8 +60,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-
-    self.labelInfo.text = [@"Fetching image list of " stringByAppendingString:self.board];
 
     [self updateUISize];
 }
@@ -76,6 +76,10 @@
 
 -(void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+}
+
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     [self updateUISize];
 }
 
