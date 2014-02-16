@@ -9,10 +9,12 @@
 #import "XHHPhotoListViewController.h"
 #import "XHHViewController.h"
 #import "XHHImageInfo.h"
+#import <iAd/iAd.h>
 
 @interface XHHPhotoListViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *labelInfo;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
+@property (weak, nonatomic) IBOutlet ADBannerView *adBannerView;
 @property NSMutableData* _responseData;
 @property NSString* startId;
 @property int pageFatched;
@@ -29,6 +31,11 @@
     [self.labelInfo setCenter:center];
     center.y -= 60;
     [self.activityView setCenter:center];
+    center.y = self.view.bounds.size.height - self.adBannerView.frame.size.height/2;
+//    [sefl.]
+    [self.adBannerView setFrame:self.view.bounds];
+    [self.adBannerView setCenter:center];
+    NSLog(@"adBannerView frame : %@", NSStringFromCGRect(self.adBannerView.frame));
 }
 
 
@@ -123,11 +130,12 @@
 }
 
 -(void) onDownloaded:(NSString*)rawHTML {
-    if(self.pageFatched < 5) {
-        self.pageFatched ++;
-        self.labelInfo.text = [self.labelInfo.text stringByAppendingString: @"."];
-        [self extractImages:rawHTML];
-        [self extractPreviousStartId:rawHTML];
+    self.pageFatched ++;
+    [self extractImages:rawHTML];
+    [self extractPreviousStartId:rawHTML];
+    self.labelInfo.text = [self.labelInfo.text stringByAppendingString: @"."];
+
+    if(self.pageFatched < 5 && self.startId != nil) {
         [self fetchImgList];
     } else {
         [self performSegueWithIdentifier:@"toImageViewSegue" sender:self] ;
@@ -149,7 +157,7 @@
 
     for (NSTextCheckingResult *match in matches) {
         NSString *img = [rawHTML substringWithRange:[match rangeAtIndex:2]] ;
-        NSLog(@"%@",img);
+       // NSLog(@"%@",img);
         // add image to the array
         [self.photos addObject:img];
     }
@@ -166,8 +174,7 @@
                                       options:0
                                         range:NSMakeRange(0, [rawHTML length])];
 
-    NSLog(@"total matches %d",[matches count]);
-
+    self.startId = nil;
     for (NSTextCheckingResult *match in matches) {
         self.startId  = [rawHTML substringWithRange:[match rangeAtIndex:1]];
     }
@@ -192,7 +199,11 @@
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection
                   willCacheResponse:(NSCachedURLResponse*)cachedResponse {
     // Return nil to indicate not necessary to store a cached response for this connection
-    return nil;
+    // Cache pages only with start parameter
+    NSString* url = [connection.currentRequest.URL absoluteString];
+    if ( [url rangeOfString:@"start="].location == NSNotFound)
+        return nil;
+    return cachedResponse;
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {

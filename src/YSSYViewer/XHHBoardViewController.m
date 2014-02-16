@@ -8,6 +8,7 @@
 
 #import "XHHBoardViewController.h"
 #import "XHHPhotoListViewController.h"
+#import <iAd/iAd.h>
 
 @interface XHHBoardViewController ()
 @property NSMutableArray *boards;
@@ -45,7 +46,7 @@
     [self.boards addObject:@"FairyTale"];
     [self.boards addObject:@"KOEI"];
     [self.boards addObject:@"Garden"];
-    [self.boards addObject:@"SJTUNews"];
+//    [self.boards addObject:@"SJTUNews"];
     [self.boards addObject:@"Material"];
     [self.boards addObject:@"Pet"];
     [self.boards addObject:@"outdoor"];
@@ -58,9 +59,6 @@
 
     [[UIApplication sharedApplication] setStatusBarHidden:NO
                                             withAnimation:UIStatusBarAnimationFade];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
 
     [self initBoards];
  

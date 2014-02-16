@@ -114,11 +114,11 @@
                 self.isLoading = FALSE;
                 [self.progressView setHidden:true];
             }
-            NSLog(@"Load image from cache for key %@", imgKey);
+            NSLog(@"Load image from cache for key = '%@'", imgKey);
         }
         else
         {
-            NSLog(@"Can't get cache for key %@", imgKey);
+            NSLog(@"Can't get cache for key = '%@'", imgKey);
 
             ii.loadingStarted = TRUE;
             ii.loaded = FALSE;
@@ -128,7 +128,7 @@
                                                                progress:^(NSUInteger receivedSize, long long expectedSize)
              {
                  // progression tracking code
-                 NSLog(@"%@ Loaded %d Expected %lld", imageURL, receivedSize, expectedSize);
+                 //NSLog(@"%@ Loaded %d Expected %lld", imageURL, receivedSize, expectedSize);
 
                  ii.receivedSize = receivedSize;
                  ii.expectedSize = expectedSize;
@@ -152,7 +152,7 @@
 
                      // cache the image
                      [[SDImageCache sharedImageCache] storeImage:image forKey:imgKey];
-                     NSLog(@"Cache the image with key %@", imgKey);
+                     NSLog(@"Cache the image with key = '%@'", imgKey);
 
 
                  }
@@ -166,7 +166,7 @@
 
              }];
 
-            NSLog(@"Loading %@", imageURL);
+            NSLog(@"Loading %@...", imageURL);
         }
     }];
 
@@ -257,12 +257,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //    XHHBoardViewController *vc = (XHHBoardViewController*)segue.destinationViewController;
-    //    vc.photos = [[NSMutableArray alloc] init];
-    //    for (NSString* photo in self.photos) {
-    //        [vc.photos addObject:photo];
-    //    }
-    // [self.timer invalidate];
+    //return back to BoardView, do nothing...
 }
 
 -(void)viewDidLoad
@@ -340,8 +335,6 @@
 {
     return YES;
 }
-
-
 
 - (BOOL)prefersStatusBarHidden {
     return YES;

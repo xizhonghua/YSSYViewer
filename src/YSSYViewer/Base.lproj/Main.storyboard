@@ -63,9 +63,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <adBannerView key="tableHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tQI-6q-BSP">
+                            <rect key="frame" x="0.0" y="64" width="768" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        </adBannerView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListBoardCell" id="a7o-od-sGg">
-                                <rect key="frame" x="0.0" y="86" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="152" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a7o-od-sGg" id="GNx-FY-ted">
                                     <rect key="frame" x="0.0" y="0.0" width="735" height="43"/>
@@ -110,6 +114,10 @@
                                 <rect key="frame" x="366" y="437" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VLX-Xa-ywr">
+                                <rect key="frame" x="0.0" y="958" width="768" height="66"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -122,6 +130,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityView" destination="Gse-yS-yK6" id="ZrA-G0-JQF"/>
+                        <outlet property="adBannerView" destination="VLX-Xa-ywr" id="3yc-XS-7VO"/>
                         <outlet property="labelInfo" destination="Esu-gb-gm1" id="Jif-P5-xP1"/>
                         <segue destination="BYZ-38-t0r" kind="modal" identifier="toImageViewSegue" id="BTD-CP-oxY"/>
                     </connections>
