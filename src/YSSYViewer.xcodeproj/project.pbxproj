@@ -27,6 +27,7 @@
 		2C45ADF618ADCB98002A5130 /* YSSYPhotoViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45ADF518ADCB98002A5130 /* YSSYPhotoViewerTests.m */; };
 		2C45AE0218AE6231002A5130 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C45AE0118AE6231002A5130 /* ImageIO.framework */; };
 		2C84F87618AFC067003DF846 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C84F87518AFC067003DF846 /* SDWebImage.framework */; };
+		2C84F87818B07F00003DF846 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C84F87718B07F00003DF846 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		2C45AE0918AECD0D002A5130 /* XHHBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHHBoardViewController.h; sourceTree = "<group>"; };
 		2C45AE0A18AECD0D002A5130 /* XHHBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHHBoardViewController.m; sourceTree = "<group>"; };
 		2C84F87518AFC067003DF846 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = lib/SDWebImage.framework; sourceTree = "<group>"; };
+		2C84F87718B07F00003DF846 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		2CF7CD5918AFB07300E092F5 /* XHHImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHHImageInfo.h; sourceTree = "<group>"; };
 		2CF7CD5A18AFB07300E092F5 /* XHHImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHHImageInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C84F87818B07F00003DF846 /* iAd.framework in Frameworks */,
 				2C45AE0218AE6231002A5130 /* ImageIO.framework in Frameworks */,
 				2C1A28CA18AFBA8E00888139 /* MapKit.framework in Frameworks */,
 				2C45ADCD18ADCB98002A5130 /* CoreGraphics.framework in Frameworks */,
@@ -121,6 +124,7 @@
 		2C45ADC918ADCB98002A5130 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C84F87718B07F00003DF846 /* iAd.framework */,
 				2C1A28C918AFBA8E00888139 /* MapKit.framework */,
 				2C1A28C718AFBA2700888139 /* SDWebImage.framework */,
 				2C45AE0118AE6231002A5130 /* ImageIO.framework */,
