@@ -26,6 +26,10 @@
 		2C45ADF418ADCB98002A5130 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C45ADF218ADCB98002A5130 /* InfoPlist.strings */; };
 		2C45ADF618ADCB98002A5130 /* YSSYPhotoViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C45ADF518ADCB98002A5130 /* YSSYPhotoViewerTests.m */; };
 		2C45AE0218AE6231002A5130 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C45AE0118AE6231002A5130 /* ImageIO.framework */; };
+		2C607C9D18BCF08C007F97ED /* guide.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C607C9C18BCF08C007F97ED /* guide.png */; };
+		2C607CA018BCF134007F97ED /* XHHGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C607C9F18BCF134007F97ED /* XHHGuideViewController.m */; };
+		2C607CA918BCF93F007F97ED /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C607CA818BCF93F007F97ED /* Settings.plist */; };
+		2C607CAC18BCF95F007F97ED /* XHHSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C607CAB18BCF95F007F97ED /* XHHSettings.m */; };
 		2C84F87618AFC067003DF846 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C84F87518AFC067003DF846 /* SDWebImage.framework */; };
 		2C84F87818B07F00003DF846 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C84F87718B07F00003DF846 /* iAd.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +71,12 @@
 		2C45AE0418AE8F8B002A5130 /* XHHPhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHHPhotoListViewController.m; sourceTree = "<group>"; };
 		2C45AE0918AECD0D002A5130 /* XHHBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHHBoardViewController.h; sourceTree = "<group>"; };
 		2C45AE0A18AECD0D002A5130 /* XHHBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHHBoardViewController.m; sourceTree = "<group>"; };
+		2C607C9C18BCF08C007F97ED /* guide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guide.png; path = ../../resourses/guide.png; sourceTree = "<group>"; };
+		2C607C9E18BCF134007F97ED /* XHHGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHHGuideViewController.h; sourceTree = "<group>"; };
+		2C607C9F18BCF134007F97ED /* XHHGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHHGuideViewController.m; sourceTree = "<group>"; };
+		2C607CA818BCF93F007F97ED /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		2C607CAA18BCF95F007F97ED /* XHHSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHHSettings.h; sourceTree = "<group>"; };
+		2C607CAB18BCF95F007F97ED /* XHHSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHHSettings.m; sourceTree = "<group>"; };
 		2C84F87518AFC067003DF846 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = lib/SDWebImage.framework; sourceTree = "<group>"; };
 		2C84F87718B07F00003DF846 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		2CF7CD5918AFB07300E092F5 /* XHHImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHHImageInfo.h; sourceTree = "<group>"; };
@@ -152,6 +162,11 @@
 				2C45AE0A18AECD0D002A5130 /* XHHBoardViewController.m */,
 				2CF7CD5918AFB07300E092F5 /* XHHImageInfo.h */,
 				2CF7CD5A18AFB07300E092F5 /* XHHImageInfo.m */,
+				2C607C9E18BCF134007F97ED /* XHHGuideViewController.h */,
+				2C607C9F18BCF134007F97ED /* XHHGuideViewController.m */,
+				2C607CA818BCF93F007F97ED /* Settings.plist */,
+				2C607CAA18BCF95F007F97ED /* XHHSettings.h */,
+				2C607CAB18BCF95F007F97ED /* XHHSettings.m */,
 			);
 			path = YSSYViewer;
 			sourceTree = "<group>";
@@ -159,6 +174,7 @@
 		2C45ADD118ADCB98002A5130 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2C607C9C18BCF08C007F97ED /* guide.png */,
 				2C45ADD218ADCB98002A5130 /* YSSYViewer-Info.plist */,
 				2C45ADD318ADCB98002A5130 /* InfoPlist.strings */,
 				2C45ADD618ADCB98002A5130 /* main.m */,
@@ -195,6 +211,7 @@
 				2C45ADC318ADCB98002A5130 /* Sources */,
 				2C45ADC418ADCB98002A5130 /* Frameworks */,
 				2C45ADC518ADCB98002A5130 /* Resources */,
+				2C607CAD18BD16B5007F97ED /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -267,7 +284,9 @@
 			files = (
 				2C45ADE318ADCB98002A5130 /* Images.xcassets in Resources */,
 				2C45ADD518ADCB98002A5130 /* InfoPlist.strings in Resources */,
+				2C607C9D18BCF08C007F97ED /* guide.png in Resources */,
 				2C45ADDE18ADCB98002A5130 /* Main.storyboard in Resources */,
+				2C607CA918BCF93F007F97ED /* Settings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,17 +300,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C607CAD18BD16B5007F97ED /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2C45ADC318ADCB98002A5130 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2C1A28D318AFBC3200888139 /* XHHAppDelegate.m in Sources */,
+				2C607CAC18BCF95F007F97ED /* XHHSettings.m in Sources */,
 				2C1A28D218AFBC2300888139 /* XHHBoardViewController.m in Sources */,
 				2C1A28D018AFBC0700888139 /* XHHImageInfo.m in Sources */,
 				2C1A28CF18AFBC0300888139 /* XHHPhotoListViewController.m in Sources */,
 				2C1A28CE18AFBBFF00888139 /* main.m in Sources */,
 				2C1A28CD18AFBBF600888139 /* XHHViewController.m in Sources */,
+				2C607CA018BCF134007F97ED /* XHHGuideViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

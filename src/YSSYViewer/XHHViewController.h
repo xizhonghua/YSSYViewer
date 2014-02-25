@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XHHViewController : UIViewController
+@interface XHHViewController :  UIViewController <UIAlertViewDelegate>
 @property(nonatomic, strong) NSMutableArray *photos;
 @end

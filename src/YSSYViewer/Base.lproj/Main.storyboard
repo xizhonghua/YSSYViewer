@@ -26,19 +26,93 @@
                                 <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="trackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMw-DL-bpN">
+                                <rect key="frame" x="688" y="964" width="60" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSaveTouchDown:" destination="BYZ-38-t0r" eventType="touchDown" id="JFr-PI-YCJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ck7-Rh-ghA">
+                                <rect key="frame" x="615" y="964" width="65" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnShareTouchDown:" destination="BYZ-38-t0r" eventType="touchDown" id="hEG-0s-Shu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="IQK-3R-jJG"/>
                     <connections>
+                        <outlet property="btnSave" destination="jMw-DL-bpN" id="bTK-k8-Dzj"/>
+                        <outlet property="btnShare" destination="Ck7-Rh-ghA" id="DXL-BA-GZ3"/>
                         <outlet property="imgView" destination="Ajh-4x-t08" id="Aam-3s-8ga"/>
                         <outlet property="progressView" destination="84t-xr-4GQ" id="Yft-5P-WU9"/>
                         <segue destination="cFL-Tm-vzi" kind="modal" identifier="toBoardViewSegue" modalTransitionStyle="flipHorizontal" id="5gz-wq-3WT"/>
+                        <segue destination="Ya1-nN-eH3" kind="push" identifier="ToGuideSegue" id="Jay-aa-T81"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-392" y="-617"/>
+            <point key="canvasLocation" x="1052" y="-688"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Y17-hC-L8b">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="wcX-XM-INk" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gcf-X3-wTC">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ldP-A2-PIL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ENz-KV-cB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-293" y="-688"/>
+        </scene>
+        <!--Guide View Controller-->
+        <scene sceneID="0aE-y5-7Ql">
+            <objects>
+                <viewController id="Ya1-nN-eH3" customClass="XHHGuideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Ti-oJ-3fS"/>
+                        <viewControllerLayoutGuide type="bottom" id="ErN-Gm-BiQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wdZ-1H-2rI">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="guide.png" translatesAutoresizingMaskIntoConstraints="NO" id="gIW-0w-H1W">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UYu-Bn-okh"/>
+                    <connections>
+                        <outlet property="imgGuide" destination="gIW-0w-H1W" id="Dro-sR-TWB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kJT-8E-1GK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2100" y="-688"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DOj-XQ-EGZ">
@@ -132,20 +206,23 @@
                         <outlet property="activityView" destination="Gse-yS-yK6" id="ZrA-G0-JQF"/>
                         <outlet property="adBannerView" destination="VLX-Xa-ywr" id="3yc-XS-7VO"/>
                         <outlet property="labelInfo" destination="Esu-gb-gm1" id="Jif-P5-xP1"/>
-                        <segue destination="BYZ-38-t0r" kind="modal" identifier="toImageViewSegue" id="BTD-CP-oxY"/>
+                        <segue destination="wcX-XM-INk" kind="modal" identifier="toImageViewSegue" id="4YE-jy-gw7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZd-bG-uWj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1580" y="-617"/>
+            <point key="canvasLocation" x="-1432" y="-697"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="guide.png" width="768" height="768"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Vns-4y-dES"/>
+        <segue reference="5gz-wq-3WT"/>
     </inferredMetricsTieBreakers>
 </document>

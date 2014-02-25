@@ -26,16 +26,12 @@
 {
     CGPoint center = CGPointMake(self.view.bounds.size.width / 2,self.view.bounds.size.height/ 2);
 
-    NSLog(@"updating XHHPhotoListViewController UI size/pos, center = %@", NSStringFromCGPoint(center)
-          );
     [self.labelInfo setCenter:center];
     center.y -= 60;
     [self.activityView setCenter:center];
     center.y = self.view.bounds.size.height - self.adBannerView.frame.size.height/2;
-//    [sefl.]
     [self.adBannerView setFrame:self.view.bounds];
     [self.adBannerView setCenter:center];
-    NSLog(@"adBannerView frame : %@", NSStringFromCGRect(self.adBannerView.frame));
 }
 
 
@@ -53,11 +49,10 @@
     [super viewDidLoad];
     [self updateUISize];
 
-    NSLog(@"%@ board = %@", NSStringFromClass([XHHPhotoListViewController class]), self.board);
 
     self.pageFatched = 0;
     self.startId = nil;
-     self.labelInfo.text = [@"Fetching image list of " stringByAppendingString:self.board];
+    self.labelInfo.text = [@"Fetching image list of " stringByAppendingString:self.board];
 
     self.photos = [[NSMutableArray alloc] init];
 
@@ -118,7 +113,8 @@
                   ];
       }];
 
-    XHHViewController *vc = (XHHViewController*)segue.destinationViewController;
+
+      XHHViewController *vc = (XHHViewController*)[[segue.destinationViewController viewControllers] objectAtIndex:0];
     vc.photos = [[NSMutableArray alloc] init];
     for (NSString* photo in self.photos) {
 

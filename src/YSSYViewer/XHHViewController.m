@@ -14,6 +14,8 @@
 @interface XHHViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *imgView;
 @property (strong, nonatomic) IBOutlet UIProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIButton *btnSave;
+@property (weak, nonatomic) IBOutlet UIButton *btnShare;
 
 @property NSTimer *timer;
 @property int currentImage;
@@ -22,23 +24,52 @@
 @property BOOL inSlideShow;
 @property NSTimeInterval timeInterval;
 @property BOOL isReverseOrder;
+@property BOOL isFirstTime;
+
 
 @end
 
 @implementation XHHViewController
 
+- (NSString *)appNameAndVersionNumberDisplayString {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *appDisplayName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+    NSString *majorVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *minorVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
+
+    return [NSString stringWithFormat:@"%@, Version %@ (%@)",
+            appDisplayName, majorVersion, minorVersion];
+}
+
+-(void)awakeFromNib {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    NSString* storedVersion = [defaults objectForKey:@"version"];
+
+    NSString* currentVersion = [self appNameAndVersionNumberDisplayString];
+
+
+    NSLog(@"awake stored version = %@, current version = %@",storedVersion, currentVersion);
+
+
+    self.isFirstTime = (storedVersion == nil) || ![currentVersion isEqualToString:storedVersion];
+}
+
 - (void) updateUISize {
-    NSLog(@"XHHViewController bounds = %@", NSStringFromCGRect(self.view.bounds));
     [self.progressView setFrame:self.view.bounds];
-
-    //self.progressView.frame.size.width = self.view.bounds.size.width;
-
-    NSLog(@"XHHViewController progressView.frame = %@", NSStringFromCGRect(self.progressView.frame));
-
-    // self.progressView.frame.size.width = self.view.bounds.size.width;
     [self.imgView setFrame:self.view.bounds];
     [self.imgView setCenter:CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2)];
-    NSLog(@"XHHViewController imgView.frame = %@", NSStringFromCGRect(self.imgView.frame));
+
+    CGRect rectSave = self.btnSave.frame;
+    CGRect rectShare = self.btnShare.frame;
+    int diff = rectShare.origin.x - rectSave.origin.x;
+
+    rectShare.origin.y = rectSave.origin.y = self.view.bounds.size.height - 60;
+    rectSave.origin.x = self.view.bounds.size.width - 80;
+    rectShare.origin.x = rectSave.origin.x + diff;
+
+    [self.btnShare setFrame:rectShare];
+    [self.btnSave setFrame:rectSave];
 }
 
 
@@ -63,6 +94,19 @@
                             self.inAnimation = FALSE;
                         }
                     }];
+}
+
+- (void) showButtons {
+    NSLog(@"show");
+    self.btnSave.hidden = FALSE;
+    self.btnShare.hidden = FALSE;
+    [self updateUISize];
+}
+
+- (void) hideButtons {
+    NSLog(@"hide");
+    self.btnSave.hidden = TRUE;
+    self.btnShare.hidden = TRUE;
 }
 
 - (void) updateProgressView {
@@ -99,6 +143,7 @@
     {
         self.isLoading = true;
         [self setImage:nil];
+        [self hideButtons];
     }
 
     [self updateProgressView];
@@ -113,6 +158,7 @@
                 [self setImage:image];
                 self.isLoading = FALSE;
                 [self.progressView setHidden:true];
+                [self showButtons];
             }
             NSLog(@"Load image from cache for key = '%@'", imgKey);
         }
@@ -145,8 +191,10 @@
                  if (image && finished)
                  {
                      // update view
-                     if(imageIndex == self.currentImage)
+                     if(imageIndex == self.currentImage) {
                          [self setImage:image];
+                         [self showButtons];
+                     }
 
                      ii.loaded = TRUE;
 
@@ -174,6 +222,7 @@
 
 - (void) nextImage {
     if(self.photos.count == 0) return;
+    [self hideButtons];
     int nextImageIndex = [self getBoundedImageIndex:((int)self.currentImage+1)];
     XHHImageInfo* ii = [self.photos objectAtIndex:nextImageIndex];
     if(self.isLoading) {
@@ -187,6 +236,7 @@
 
 - (void) prevImage {
     if(self.photos.count == 0) return;
+    [self hideButtons];
     int prevImageIndex = [self getBoundedImageIndex:((int)self.currentImage-1)];
     XHHImageInfo* ii = [self.photos objectAtIndex:prevImageIndex];
     if(self.isLoading) {
@@ -223,6 +273,8 @@
                                                  repeats: FALSE];
     self.inSlideShow = TRUE;
     self.view.backgroundColor = [UIColor blackColor];
+    [self hideButtons];
+
     NSLog(@"slideshow started!");
 }
 
@@ -231,6 +283,7 @@
     self.view.backgroundColor = [UIColor darkGrayColor];
     [self.timer invalidate];
     self.inSlideShow = FALSE;
+    [self showButtons];
     NSLog(@"slideshow stopped!");
 }
 
@@ -251,7 +304,10 @@
     }
 
     if(swipe.direction == UISwipeGestureRecognizerDirectionUp) {
-        [self performSegueWithIdentifier:@"toBoardViewSegue" sender:self];
+        if(self.inSlideShow)
+            [self stopSlideShow];
+        else
+            [self performSegueWithIdentifier:@"toBoardViewSegue" sender:self];
     }
 }
 
@@ -260,9 +316,16 @@
     //return back to BoardView, do nothing...
 }
 
+-(BOOL)isFirsTime
+{
+    return self.isFirstTime;
+}
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+
+   // self.isFirstTime = TRUE;
 
     [[UIApplication sharedApplication] setStatusBarHidden:YES
                                             withAnimation:UIStatusBarAnimationFade];
@@ -287,6 +350,17 @@
     [self.imgView addGestureRecognizer:swipeRight];
     [self.imgView addGestureRecognizer:swipeUP];
     [self.imgView addGestureRecognizer:swipeDown];
+
+    [self.navigationController.navigationBar setHidden:YES];
+    
+    CALayer *btnLayer = [self.btnSave layer];
+    [btnLayer setMasksToBounds:YES];
+    [btnLayer setCornerRadius:5.0f];
+    btnLayer = [self.btnShare layer];
+    [btnLayer setMasksToBounds:YES];
+    [btnLayer setCornerRadius:5.0f];
+
+
 }
 
 
@@ -298,6 +372,19 @@
 
     self.currentImage = -1;
     [self nextImage];
+
+    if([self isFirstTime])
+    {
+        self.isFirstTime = FALSE;
+
+        // Store the data
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+        [defaults setObject:[self appNameAndVersionNumberDisplayString] forKey:@"version"];
+        [defaults synchronize];
+
+        [self performSegueWithIdentifier:@"ToGuideSegue" sender:self];
+    }
 }
 
 - (void)viewWillLayoutSubviews
@@ -338,5 +425,58 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"callbacked!");
+    switch (buttonIndex) {
+        case 0:
+            [self updateUISize];
+            break;
+    }
+}
+
+- (void)thisImage:(UIImage *)image hasBeenSavedInPhotoAlbumWithError:(NSError *)error usingContextInfo:(void*)ctxInfo {
+    if (error) {
+        // Do anything needed to handle the error or display it to the user
+    } else {
+        // .... do anything you want here to handle
+        // .... when the image has been saved in the photo album
+        NSLog(@"saved!");
+
+        //Create UIAlertView alert
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Saved" message:@"Saved" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        //After some time
+        [alert dismissWithClickedButtonIndex:0 animated:TRUE];
+        [alert show];
+        [self updateUISize];
+    }
+}
+
+- (IBAction)btnSaveTouchDown:(id)sender {
+    NSLog(@"SAVE TOUCHED!");
+
+    UIImageWriteToSavedPhotosAlbum(self.imgView.image, self, @selector(thisImage:hasBeenSavedInPhotoAlbumWithError:usingContextInfo:), nil);
+}
+- (IBAction)btnShareTouchDown:(id)sender {
+
+    NSLog(@"SHARE TOUCHED!");
+
+    XHHImageInfo* ii = [self.photos objectAtIndex:self.currentImage];
+
+    NSString * encodedImageUrl = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(nil,
+                                           (CFStringRef)ii.imageUrl, nil,
+                                           (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8));
+
+    NSString* url = @"http://service.weibo.com/share/share.php?title=share%20image&pic=";
+
+    url = [url stringByAppendingString:encodedImageUrl];
+    url = [url stringByAppendingString:@"&url="];
+    url = [url stringByAppendingString:encodedImageUrl];
+
+    NSLog(@"url = %@", url);
+
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: url]];
 }
 @end
